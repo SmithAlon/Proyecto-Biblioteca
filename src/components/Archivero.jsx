@@ -1,3 +1,4 @@
+import './components.css';
 import PropTypes from 'prop-types';
 
 const Archivero = ({ libros }) => {
@@ -5,14 +6,14 @@ const Archivero = ({ libros }) => {
     return libros.map((libro, index) => (
       <li key={index}>
         <h2>{libro.Nombre}</h2>
-        <p>{libro.Editorial}</p>
+        <p>{libro.Autor}</p>
       </li>
     ));
   };
 
   return (
-    <div>
-      <h1>Archivero</h1>
+    <div className='Archivero'>
+      <h1>Biblioteca</h1>
       <ul>
         <LibrosLista />
       </ul>
@@ -24,7 +25,7 @@ Archivero.propTypes = {
   libros: PropTypes.arrayOf(
     PropTypes.shape({
       Nombre: PropTypes.string.isRequired,
-      Editorial: PropTypes.string.isRequired,
+      Autor: PropTypes.string.isRequired,
     })
   ).isRequired,
 };

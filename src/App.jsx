@@ -1,26 +1,19 @@
-import { useState } from 'react';
 import Archivero from './components/Archivero.jsx';
-import libros from './Libros.js';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import LibrosData from './Libros.js';
+import Formulario from './components/Formulario.jsx';
 
 const App = () => {
-  const [mostrarArchivero, setMostrarArchivero] = useState(false);
-
-  const handleArchivero = () => {
-    setMostrarArchivero(!mostrarArchivero);
-  };
-
   return (
-    <>
-      <div>
-        <h1>Biblioteca</h1>
-      </div>
+    <BrowserRouter>
+    <Link to='/'>
+    </Link>
 
-      <button onClick={handleArchivero}>
-        {mostrarArchivero ? 'Ocultar Archivero' : 'Mostrar Archivero'}
-      </button>
-
-      {mostrarArchivero && <Archivero libros={libros} />}
-    </>
+    <Routes>
+      <Route path='/' element = {<Formulario/>}/>
+      <Route path='/archivero' element = {<Archivero libros={LibrosData} />}/>
+    </Routes>
+    </BrowserRouter>
   );
 };
 

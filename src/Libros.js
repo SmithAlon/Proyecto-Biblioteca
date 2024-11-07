@@ -1,17 +1,16 @@
-const Libros = [
+const librosData = [
     {
-        Nombre: "Libro 1",
-        Editorial: "Editorial 1",
+      Nombre: "El señor de los anillos",
+      Autor: "J. R. R. Tolkien",
     },
     {
-        Nombre: "Libro 2",
-        Editorial: "Editorial 2",
+      Nombre: "Harry Potter",
+      Autor: "J.K. Rowling",
     },
     {
-        Nombre: "Libro 3",
-        Editorial: "Editorial 3",
+      Nombre: "1984",
+      Autor: "George Orwell",
     }
-];
-
-export default Libros;
-
+  ];
+  
+  export default librosData;
