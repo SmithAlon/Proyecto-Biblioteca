@@ -4,19 +4,16 @@ import PropTypes from 'prop-types';
 const Archivero = ({ libros }) => {
   const LibrosLista = () => {
     return libros.map((libro, index) => (
-      <li key={index}>
+      <div className='container' key={index}>
         <h2>{libro.Nombre}</h2>
         <p>{libro.Autor}</p>
-      </li>
+      </div>
     ));
   };
 
   return (
     <div className='Archivero'>
-      <h1>Biblioteca</h1>
-      <ul>
-        <LibrosLista />
-      </ul>
+      <LibrosLista />
     </div>
   );
 };

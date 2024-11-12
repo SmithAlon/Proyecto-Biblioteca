@@ -1,21 +1,27 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Formulario = () => {
   const [correo, setCorreo] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const validarPassword = () => {
-    return password === 'Password'; // Reemplaza 'tuPassword' con la contraseña correcta
+    return password === 'Password'; // Reemplaza 'Password' con la contraseña correcta
   };
 
   const validarCorreo = () => {
-    return correo === 'Juan@gmail.com'; // Reemplaza 'tuCorreo@example.com' con el correo correcto
+    return correo === 'Juan@gmail.com'; // Reemplaza 'Juan@gmail.com' con el correo correcto
   };
 
   const handlePersona = () => {
     const esCorreoValido = validarCorreo();
     const esPasswordValido = validarPassword();
-    console.log(esCorreoValido && esPasswordValido ? 'Usuario y contraseña correctos' : 'Usuario y contraseña incorrectos');
+    if (esCorreoValido && esPasswordValido) {
+      navigate('/biblioteca');
+    } else {
+      alert('Correo o contraseña incorrectos');
+    }
   };
 
   return (

@@ -1,7 +1,6 @@
-import Archivero from './components/Archivero.jsx';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
-import LibrosData from './Libros.js';
 import Formulario from './components/Formulario.jsx';
+import Biblioteca from './pages/Biblioteca.jsx';
 
 const App = () => {
   return (
@@ -11,7 +10,7 @@ const App = () => {
 
     <Routes>
       <Route path='/' element = {<Formulario/>}/>
-      <Route path='/archivero' element = {<Archivero libros={LibrosData} />}/>
+      <Route path='/biblioteca' element = {<Biblioteca/>}/>
     </Routes>
     </BrowserRouter>
   );
