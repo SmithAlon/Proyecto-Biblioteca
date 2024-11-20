@@ -1,6 +1,5 @@
 import Cabecera from '../components/Cabecera.jsx';
-import Archivero from '../components/Archivero.jsx';
-import librosData from '../Libros.js';
+import BuscarLibros from '../components/BuscarLibros.jsx';
 
 const Biblioteca = () => {
   return (
@@ -9,7 +8,7 @@ const Biblioteca = () => {
         <Cabecera />
       </div>
       <div className='mt-28'> {/* Añade un margen superior para separar los componentes */}
-        <Archivero libros={librosData} />
+        <BuscarLibros />
       </div>
     </section>
   );
