@@ -10,6 +10,14 @@ const librosData = [
     {
       Nombre: "1984",
       Autor: "George Orwell",
+    },
+    {
+      Nombre: "Cien años de soledad",
+      Autor: "Gabriel García Márquez",
+    },
+    {
+      Nombre: "La Odisea",
+      Autor: "Homero",
     }
   ];
   

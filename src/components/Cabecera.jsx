@@ -1,46 +1,33 @@
-import { useState, useEffect, useRef } from 'react';
-import './components.css'; // archivo de estilos para el menú
+import { useRef, useState } from 'react';
 
 const Cabecera = () => {
-  // Estado para manejar la visibilidad del menú
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
 
-  // Función para alternar la visibilidad del menú
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  // Cerrar el menú si se hace clic fuera de él
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
   return (
-    <header>
-      <div className="header-container">
-        <div>
-          <img className='Logo' src="https://cdn-icons-png.flaticon.com/512/23/23358.png" alt="logo" />
+    <header className="fixed top-0 left-0 w-full bg-green-600 z-50">
+      <div className="flex items-center justify-between p-4">
+        <div className="flex items-center">
+          <img className='max-h-10' src="https://cdn-icons-png.flaticon.com/512/23/23358.png" alt="logo" />
         </div>
-        <h1>Biblioteca Web</h1>
-        <div className="dropdown" ref={menuRef}>
-          <button onClick={toggleMenu} className="dropdown-button">
+        <h1 className="felx align-center justify-center text-white text-2xl font-bold">Biblioteca Web</h1>
+        <div className="dropdown relative" ref={menuRef}>
+          <button onClick={toggleMenu} className="text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-neutral-200 dark:hover:bg-neutral-300 dark:focus:bg-neutral-500">
             Menú
           </button>
           {isOpen && (
-            <ul className="dropdown-menu">
-              <li className="dropdown-item">Usuario</li>
-              <li className="dropdown-item">Libros</li>
-              <li className="dropdown-cerrarSesion"><a href="/">Cerrar Sesión</a></li>
-            </ul>
+            <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 bg-slate-100 shadow-lg rounded border border-black">
+              <ul className="dropdown-menu w-auto">
+                <li className="dropdown-item p-2 hover:bg-gray-200"><a href="/Biblioteca">Biblioteca</a></li>
+                <li className="dropdown-item p-2 hover:bg-gray-200"><a href="/perfil">Mi perfil</a></li>
+                <hr className="my-2 border-gray-300" />
+                <li className="dropdown-cerrarSesion block px-4 py-2 hover:bg-gray-200 text-blue-800"><a href="/">Cerrar Sesión</a></li>
+              </ul>
+            </div>
           )}
         </div>
       </div>
